@@ -6,7 +6,7 @@
     },
     {
       "id": "2",
-      "nome": "Front Vue"
+      "nome": "Front-End Vue"
     }
   ],
   "tarefas": [
@@ -44,6 +44,15 @@
       "projeto": {
         "id": 1,
         "nome": "Alura Tracker"
+      }
+    },
+    {
+      "id": "fdba",
+      "duracaoEmSegundos": 1,
+      "descricao": "teste22",
+      "projeto": {
+        "id": "2",
+        "nome": "Front-End Vue"
       }
     }
   ]
