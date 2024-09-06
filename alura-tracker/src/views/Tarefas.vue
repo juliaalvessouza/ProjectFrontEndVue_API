@@ -1,12 +1,21 @@
 <template>
   <FormularioTarefa @aoSalvarTarefa="salvarTarefa" />
   <div class="lista">
-    <TarefaComponente v-for="(tarefa, index) in tarefas" :tarefa="tarefa" :key="index" @aoTarefaClicada="selecionarTarefa" />
     <BoxTarefa v-if="listaEstaVazia">
       Você não está muito produtivo hoje... =(
     </BoxTarefa>
+    <div class="field">
+      <p class="control has-icons-left">
+        <input class="input" type="text" placeholder="Digite para filtrar" v-model="filtro"/>
+        <span class="icon is-small is-left">
+          <i class="fas fa-search"></i>
+        </span>      
+      </p>
+    </div>
+    <TarefaComponente v-for="(tarefa, index) in tarefas" :tarefa="tarefa" :key="index"
+      @aoTarefaClicada="selecionarTarefa" />   
   </div>
-  <div class="modal" :class="{ 'is-active':tarefaSelecionada }" v-if="tarefaSelecionada">
+  <div class="modal" :class="{ 'is-active': tarefaSelecionada }" v-if="tarefaSelecionada">
     <div class="modal-background"></div>
     <div class="modal-card">
       <header class="modal-card-head">
@@ -15,9 +24,9 @@
       </header>
       <section class="modal-card-body">
         <div class="field">
-                <label for="descricaoDaTarefa" class="label">Descrição</label>
-                <input type="text" class="input" v-model="tarefaSelecionada.descricao" id="descricaoDaTar" />
-            </div>
+          <label for="descricaoDaTarefa" class="label">Descrição</label>
+          <input type="text" class="input" v-model="tarefaSelecionada.descricao" id="descricaoDaTar" />
+        </div>
       </section>
       <footer class="modal-card-foot">
         <div class="buttons">
@@ -30,7 +39,7 @@
 </template>
 
 <script lang="ts">
-import { computed, defineComponent } from 'vue';
+import { computed, defineComponent, ref, watchEffect } from 'vue';
 import FormularioTarefa from '../components/FormularioTarefa.vue';
 import TarefaComponente from '../components/TarefaComponente.vue';
 import BoxTarefa from '../components/BoxTarefa.vue';
@@ -45,24 +54,24 @@ export default defineComponent({
     TarefaComponente,
     BoxTarefa
   },
-  data (){
+  data() {
     return {
-      tarefaSelecionada: null as ITarefa | null 
+      tarefaSelecionada: null as ITarefa | null
     }
   },
   methods: {
     salvarTarefa(tarefa: ITarefa): void {
       this.store.dispatch(CADASTRAR_TAREFA, tarefa)
     },
-    selecionarTarefa(tarefa: ITarefa){
+    selecionarTarefa(tarefa: ITarefa) {
       this.tarefaSelecionada = tarefa
     },
-    fecharModal(){
+    fecharModal() {
       this.tarefaSelecionada = null
     },
-    alterarTarefa (){
+    alterarTarefa() {
       this.store.dispatch(ALTERAR_TAREFA, this.tarefaSelecionada)
-      .then(() => this.fecharModal())
+        .then(() => this.fecharModal())
     }
   },
   computed: {
@@ -74,10 +83,16 @@ export default defineComponent({
     const store = useStore()
     store.dispatch(OBTER_TAREFAS)
     store.dispatch(OBTER_PROJETOS)
+    const filtro = ref('')
+
+    watchEffect(() => {
+      store.dispatch(OBTER_TAREFAS, filtro.value)
+    })
 
     return {
       tarefas: computed(() => store.state.tarefa.tarefas),
-      store
+      store,
+      filtro
     }
   }
 });
