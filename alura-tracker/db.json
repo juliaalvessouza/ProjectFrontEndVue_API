@@ -5,8 +5,46 @@
       "nome": "Alura Tracker"
     },
     {
-      "id": "5e0a",
-      "nome": "teste httpsfdsfsd"
+      "id": "2",
+      "nome": "Front Vue"
+    }
+  ],
+  "tarefas": [
+    {
+      "id": 1,
+      "duracaoEmSegundos": 120,
+      "descricao": "Configurando ambiente",
+      "projeto": {
+        "id": 1,
+        "nome": "Alura Tracker"
+      }
+    },
+    {
+      "id": "f5e1",
+      "duracaoEmSegundos": 2,
+      "descricao": "estudando vue ",
+      "projeto": {
+        "id": "2",
+        "nome": "Front Vue"
+      }
+    },
+    {
+      "id": "0154",
+      "duracaoEmSegundos": 1,
+      "descricao": "teste edit tarefa",
+      "projeto": {
+        "id": "2",
+        "nome": "Front Vue"
+      }
+    },
+    {
+      "id": "56e6",
+      "duracaoEmSegundos": 0,
+      "descricao": "teste ",
+      "projeto": {
+        "id": 1,
+        "nome": "Alura Tracker"
+      }
     }
   ]
 }
