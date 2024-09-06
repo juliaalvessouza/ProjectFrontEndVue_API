@@ -2,8 +2,8 @@
     <section>
         <form @submit.prevent="salvar">
             <div class="field">
-                <label for="nomeDoProjeto" class="label">Nome do Projeto</label>
-                <input type="text" class="input" v-model="nomeDoProjeto" id="nomeDoProjet" />
+                <label for="nomeDoProjeto" class="label" style="color:var(--texto-primario);">Nome do Projeto</label>
+                <input type="text" class="input"  v-model="nomeDoProjeto" id="nomeDoProjet" />
             </div>
             <div class="field">
                 <button class="button" type="submit">
@@ -69,3 +69,4 @@ export default defineComponent({
     }
 })
 </script>
+

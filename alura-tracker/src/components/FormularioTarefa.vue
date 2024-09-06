@@ -78,6 +78,7 @@ export default defineComponent({
   color: var(--texto-primario);
   opacity: 0.6; 
 }
+
 </style>
 
 

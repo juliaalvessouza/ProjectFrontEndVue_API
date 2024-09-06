@@ -5,10 +5,10 @@
             v-for="notificacao in notifacoes"
             :key="notificacao.id"
             >
-                <div class="message-header">
+                <div class="message-header" style="color:var(--texto-primario);">
                     {{notificacao.titulo}}
                 </div>
-                <div class="message body">
+                <div class="message body" style="color:var(--texto-primario);">
                     {{notificacao.texto}}
                 </div>
         </article>      

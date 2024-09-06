@@ -7,6 +7,18 @@
     {
       "id": "2",
       "nome": "Front-End Vue"
+    },
+    {
+      "id": "602d",
+      "nome": "gdgdf"
+    },
+    {
+      "id": "7589",
+      "nome": "dfgdfg"
+    },
+    {
+      "id": "8dec",
+      "nome": "dfgd"
     }
   ],
   "tarefas": [
@@ -54,6 +66,11 @@
         "id": "2",
         "nome": "Front-End Vue"
       }
+    },
+    {
+      "id": "9726",
+      "duracaoEmSegundos": 0,
+      "descricao": ""
     }
   ]
 }

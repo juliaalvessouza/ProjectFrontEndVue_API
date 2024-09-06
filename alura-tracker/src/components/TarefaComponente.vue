@@ -1,13 +1,13 @@
 <template>
     <BoxTarefa>
         <div class="columns clicavel" @click="tarefaClicada">
-            <div class="column is-4 text">
+            <div class="column is-4 text" style="color:black;">
                 {{tarefa.descricao || 'Tarefa sem descrição'}}
             </div>
-            <div class="column is-3">
+            <div class="column is-3" style="color:black;"> 
                 {{ tarefa.projeto?.nome || 'N/D' }}
             </div>
-            <div class="column">
+            <div class="column" style="color:black">
                 <CronometroTarefa :tempoEmSegundos="tarefa.duracaoEmSegundos" />
             </div>
         </div>
