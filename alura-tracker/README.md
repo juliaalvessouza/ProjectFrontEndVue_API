@@ -1,41 +1,24 @@
-# Alura Tracker
+# alura-tracker
 
-**Alura-tracker** é um projeto desenvolvido como parte do curso da plataforma Alura sobre o framework Vue.js. Este projeto foi criado como entrega de trabalho para a disciplina de *Framework Front-end* na pós-graduação em Full Stack da Unimar.
+## Project setup
+```
+npm install
+```
 
-## Tecnologias Utilizadas
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
 
-- **Vue.js**: Aplicando conceitos de Vue como Vue Router e Vuex.
-- **Bulma**: Utilizado como framework CSS.
-- **FontAwesome**: Para os ícones da aplicação.
-- **json-server**: Para simular uma API.
-- **Axios**: Para realizar requisições HTTP.
+### Compiles and minifies for production
+```
+npm run build
+```
 
-## Pré-requisitos
+### Lints and fixes files
+```
+npm run lint
+```
 
-Antes de rodar o projeto, é necessário ter o **Node.js** instalado.
-
-### Instalação
-
-1. Clone o repositório:
-    ```bash
-    git clone https://github.com/juliaalvessouza/ProjectFrontEndVue_API
-    ```
-
-2. Instale as dependências:
-    ```bash
-    npm i
-    ```
-
-3. Inicie o servidor json-server:
-    ```bash
-    npm run server
-    ```
-
-## Acesso ao Projeto
-
-- Repositório no GitHub: [Alura Tracker](https://github.com/juliaalvessouza/ProjectFrontEndVue_API)
-- Versão em produção: [Projeto Alura Tracker](https://project-front-end-vue-api-baqe.vercel.app/#/)
-
----
-
-Projeto desenvolvido como parte da pós-graduação Full Stack da **Unimar**.
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
