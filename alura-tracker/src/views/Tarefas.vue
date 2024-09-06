@@ -14,28 +14,25 @@
     </div>
     <TarefaComponente v-for="(tarefa, index) in tarefas" :tarefa="tarefa" :key="index"
       @aoTarefaClicada="selecionarTarefa" />   
-  </div>
-  <div class="modal" :class="{ 'is-active': tarefaSelecionada }" v-if="tarefaSelecionada">
-    <div class="modal-background"></div>
-    <div class="modal-card">
-      <header class="modal-card-head">
+    <ModalTarefa :mostrar="tarefaSelecionada != null">
+      <template #cabecalho>
         <p class="modal-card-title">Editando uma tarefa</p>
         <button class="delete" aria-label="close"></button>
-      </header>
-      <section class="modal-card-body">
+      </template>
+      <template #corpo>
         <div class="field">
           <label for="descricaoDaTarefa" class="label">Descrição</label>
           <input type="text" class="input" v-model="tarefaSelecionada.descricao" id="descricaoDaTar" />
         </div>
-      </section>
-      <footer class="modal-card-foot">
+      </template>
+      <template #rodape>
         <div class="buttons">
           <button @click="alterarTarefa" class="button is-success">Salvar alterações</button>
           <button @click="fecharModal" class="button">Cancelar</button>
         </div>
-      </footer>
-    </div>
-  </div>
+      </template>
+    </ModalTarefa>  
+  </div>  
 </template>
 
 <script lang="ts">
@@ -46,13 +43,15 @@ import BoxTarefa from '../components/BoxTarefa.vue';
 import { useStore } from '@/store';
 import { ALTERAR_TAREFA, CADASTRAR_TAREFA, OBTER_PROJETOS, OBTER_TAREFAS } from '@/store/tipo-acoes';
 import ITarefa from '@/interface/ITarefa';
+import ModalTarefa from '@/components/ModalTarefa.vue';
 
 export default defineComponent({
   name: 'App',
   components: {
     FormularioTarefa,
     TarefaComponente,
-    BoxTarefa
+    BoxTarefa,
+    ModalTarefa
   },
   data() {
     return {
